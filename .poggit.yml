@@ -5,4 +5,5 @@ branches:
 projects:
   BedWarsPM:
     path: ""
+    lint: true
 ...
