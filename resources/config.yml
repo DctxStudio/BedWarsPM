@@ -1,0 +1,10 @@
+mysql:
+  ip: "127.0.0.1"
+  user: "root"
+  password: ""
+  database: "bedwars"
+waterdog:
+  enabled: false
+  lobbyServer: lobby
+scoreboard-title: "§eplay.dctxgames.net"
+mode: 4

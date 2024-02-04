@@ -1,0 +1,22 @@
+name: BedWars
+api: 5.0.0
+version: 1.1-BETA5
+main: ItsToxicGG\BedWars\BedWars
+author: ["DctxGamesMC", "ItsToxicGG"]
+
+permissions:
+  bw.cmd:
+    description: Permission to all BedWars commands
+    default: op
+  bw.cmd.create:
+    description: Permission for /bw create
+    default: op
+  bw.cmd.remove:
+    description: Permission for /bw remove
+    default: op
+  bw.cmd.set:
+    description: Permission for /bw set
+    default: op
+  bw.cmd.list:
+    description: Permission for /bw arenas
+    default: op
