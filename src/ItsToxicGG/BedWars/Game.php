@@ -7,6 +7,7 @@ use pocketmine\block\Block;
 use pocketmine\block\BlockTypeIds;
 use pocketmine\block\Chest;
 use pocketmine\player\GameMode;
+use pocketmine\block\utils\DyeColor;
 use pocketmine\event\server\DataPacketReceiveEvent;
 use pocketmine\event\server\DataPacketSendEvent;
 use pocketmine\utils\Random;
@@ -1192,7 +1193,7 @@ class Game implements Listener
     {
         foreach ($this->world->getTiles() as $tile) {
             if ($tile instanceof Furnace) {
-                $nbt = Utils::createEntity() (new Vector3($tile->x + 0.5, $tile->y + 1, $tile->z + 0.5));
+                $nbt = new Entity(new Vector3($tile->x + 0.5, $tile->y + 1, $tile->z + 0.5));
                 $path = $this->plugin->getDataFolder() . "diamond.png";
                 $skin = $this->plugin->getSkinFromFile($path);
                 $nbt->setTag(new CompoundTag('Skin', [
@@ -1208,7 +1209,7 @@ class Game implements Listener
                 $tile->getPosition()->getWorld()->setBlock(new Vector3($tile->getPosition()->x, $tile->getPosition()->y, $tile->getPosition()->z), VanillaBlocks::STONE());
             }
             if ($tile instanceof EnchantTable) {
-                $nbt = $this->createBaseNBT(new Vector3($tile->x + 0.5, $tile->y + 4, $tile->z + 0.5));
+                $nbt = new Entity(new Vector3($tile->x + 0.5, $tile->y + 4, $tile->z + 0.5));
                 $path = $this->plugin->getDataFolder() . "diamond.png";
                 $skin = $this->plugin->getSkinFromFile($path);
                 $nbt->setTag(new CompoundTag('Skin', [
@@ -1225,7 +1226,7 @@ class Game implements Listener
                 $tile->getPosition()->getWorld()->setBlock(new Vector3($tile->x, $tile->y, $tile->z), VanillaBlocks::STONE());
             }
             if ($tile instanceof Skull) {
-                $nbt = $this->createBaseNBT(new Vector3($tile->x + 0.5, $tile->y + 4, $tile->z + 0.5));
+                $nbt = new Entity(new Vector3($tile->x + 0.5, $tile->y + 4, $tile->z + 0.5));
                 $path = $this->plugin->getDataFolder() . "emerald.png";
                 $skin = $this->plugin->getSkinFromFile($path);
                 $nbt->setTag(new CompoundTag('Skin', [
@@ -1290,7 +1291,7 @@ class Game implements Listener
 
     public function destroyAllBeds()
     {
-        $this->broadcastMessage("§eAll bed was destoyed");
+        $this->broadcastMessage("§eAll beds were destoyed");
         foreach (["red", "blue", "yellow", "green"] as $t) {
             $pos = Vector3::fromString($this->data["bed"][$t]);
             $bed = $this->world->getBlockAt($pos->x, $pos->y, $pos->z);
@@ -1341,7 +1342,7 @@ class Game implements Listener
         if ($this->getCountTeam("yellow") <= 0) {
             $pos = Vector3::fromString($this->data["bed"]["yellow"]);
             if (($bed = $this->world->getBlockAt($pos->x, $pos->y, $pos->z)) instanceof Bed) {
-                $this->world->setBlock($bed, \pocketmine\block\VanillaBlocks::AIR());
+                $this->world->setBlock($bed, VanillaBlocks::AIR());
                 $this->world->setBlock($bed->getOtherHalf(), VanillaBlocks::AIR());
             }
             foreach ($this->world->getEntities() as $g) {
@@ -1411,65 +1412,6 @@ class Game implements Listener
             }
         }
     }
-
-//     /**
-//      * @return string
-//      */
-
-//     public function getFireworksColor(): string
-//     {
-//         $colors = [
-//             Fireworks::COLOR_BLACK,
-//             Fireworks::COLOR_RED,
-//             Fireworks::COLOR_DARK_GREEN,
-//             Fireworks::COLOR_BROWN,
-//             Fireworks::COLOR_BLUE,
-//             Fireworks::COLOR_DARK_PURPLE,
-//             Fireworks::COLOR_DARK_AQUA,
-//             Fireworks::COLOR_GRAY,
-//             Fireworks::COLOR_DARK_GRAY,
-//             Fireworks::COLOR_PINK,
-//             Fireworks::COLOR_GREEN,
-//             Fireworks::COLOR_YELLOW,
-//             Fireworks::COLOR_LIGHT_AQUA,
-//             Fireworks::COLOR_DARK_PINK,
-//             Fireworks::COLOR_GOLD,
-//             Fireworks::COLOR_WHITE
-//         ];
-
-//         return $colors[array_rand($colors)];
-//     }
-
-//     /**
-//      * @param Player $player
-//      */
-
-//     public function addRocket(Player $player)
-//     {
-//         $this->plugin->getScheduler()->scheduleDelayedTask(new ClosureTask(function () use ($player): void {
-//             $fw = ItemFactory::getInstance()->get(ItemTypeIds::FIREWORKS);
-//             if ($fw instanceof Fireworks) {
-//                 $fw->addExplosion(mt_rand(0, 4), $this->getFireworksColor(), "", true, true);
-//                 $fw->setFlightDuration(3);
-//                 $world = $player->getWorld();
-//                 if ($world instanceof World) {
-//                     $x = $player->getPosition()->getX();
-//                     $y = $player->getPosition()->getY();
-//                     $z = $player->getPosition()->getZ();
-//                     if (!$player == null) {
-//                         $nbt = FireworksRocket::createBaseNBT(new Vector3($x, $y, $z), new Vector3(0.001, 0.05, 0.001), lcg_value() * 360, 90);
-//                         $entity = FireworksRocket::createEntity("FireworksRocket", $world, $nbt, $fw);
-
-//                         if ($entity instanceof FireworksRocket) {
-//                             $entity->spawnToAll();
-//                         }
-//                     }
-//                 }
-//             }
-//         }), 15);
-//         $player->getWorld()->broadcastLevelSoundEvent(new Vector3($player->getPosition()->getX(), $player->getPosition()->getY(), $player->getPosition()->getZ()), LevelSoundEvent::SOUND_LAUNCH);
-
-//     }
 
     public function destroyEntity()
     {

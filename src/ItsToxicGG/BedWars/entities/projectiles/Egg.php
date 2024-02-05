@@ -13,6 +13,7 @@ use pocketmine\network\mcpe\protocol\PlaySoundPacket;
 use pocketmine\math\RayTraceResult;
 use pocketmine\world\particle\HeartParticle;
 use ItsToxicGG\BedWars\BedWars;
+use pocketmine\block\utils\DyeColor;
 use ItsToxicGG\BedWars\math\Vector3;
 
 

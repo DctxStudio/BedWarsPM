@@ -474,9 +474,6 @@ class BedWars extends PluginBase implements Listener {
             return;
         }
        
-        if($this->getConfig()->get("join-arena")){
-            //CODE
-        }
         $player->getInventory()->clearAll();
         $player->teleport($this->getServer()->getWorldManager()->getDefaultWorld()->getSafeSpawn());
         
