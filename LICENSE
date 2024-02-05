@@ -1,20 +1,24 @@
-DctxStudios Plugins, Worlds, Virions License
+DctxStudios Public Plugins, Worlds, Virions License
 
 Version 1.0, 1/16/2024
 
 Definitions:
-1. "Software" refers to the custom private plugin created by DctxStudios.
-2. "User" refers to the entity or individual using the Software.
+1. "Public Software" refers to the custom plugin, world, or virion created by DctxStudios and intended for public use.
+2. "Private Software" refers to the custom plugin, world, or virion created by DctxStudios and intended for private use.
+3. "User" refers to the entity or individual using the Software.
 
-Grant of License:
-DctxStudios grants the User a non-exclusive, non-transferable, revocable license to use the Software solely for taking screenshots in accordance with the terms of this license.
+Grant of License (Public Software):
+DctxStudios grants the User a non-exclusive, non-transferable, revocable license to use the Public Software in accordance with the terms of this license.
 
-Restrictions:
-1. The User may not sublicense, sell, rent, lease, or otherwise transfer the Software or any rights granted under this license.
-2. The User may not modify, adapt, reverse engineer, decompile, disassemble, or create derivative works based on the Software.
-3. The User may not distribute, publish, make publicly available, or otherwise share the Software with third parties, including but not limited to online forums, repositories, or any public platforms.
-4. The User may only use the Software for the purpose of creating and displaying pictures or screenshots for non-commercial and non-promotional purposes.
-5. The User may not leak, disclose, or make public any source code, documentation, or any other information related to the Software.
+Grant of License (Private Software):
+DctxStudios grants the User a non-exclusive, non-transferable, revocable license to use the Private Software solely for taking screenshots in accordance with the terms of this license.
+
+Restrictions (Public Software):
+1. The User may not sublicense, sell, rent, lease, or otherwise transfer the Public Software or any rights granted under this license.
+2. The User may not modify, adapt, reverse engineer, decompile, disassemble, or create derivative works based on the Public Software.
+3. The User may not distribute, publish, make publicly available, or otherwise share the Public Software with third parties, including but not limited to online forums, repositories, or any public platforms.
+4. The User may only use the Public Software for the purpose of creating and displaying pictures or screenshots for non-commercial and non-promotional purposes.
+5. The User may not claim the Public Software as their own creation.
 
 Ownership:
 DctxStudios retains all rights, title, and interest in and to the Software, including all intellectual property rights.
@@ -32,7 +36,7 @@ Limitation of Liability:
 In no event shall DctxStudios be liable for any damages, including but not limited to direct, indirect, special, incidental, or consequential damages arising out of the use or inability to use the Software.
 
 Governing Law:
-This license shall be governed by and construed in accordance with the laws of South-Africa, without regard to its conflict of law principles.
+This license shall be governed by and construed in accordance with the laws of South Africa, without regard to its conflict of law principles.
 
 Entire Agreement:
 This license constitutes the entire agreement between DctxStudios and the User concerning the Software and supersedes all prior or contemporaneous understandings, agreements, and representations.
