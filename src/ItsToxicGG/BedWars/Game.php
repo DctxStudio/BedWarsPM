@@ -3206,7 +3206,7 @@ class Game implements Listener
 	        $alarmtrap = "§cDisabled";
 	        $alarmprice = "§e{$trapprice} Diamond\n"; 
 	    }
-	    $inv->setItem(31, VanillaBlocks::LIT_REDSTONE_TORCH()->asItem()
+	    $inv->setItem(31, VanillaBlocks::REDSTONE_TORCH()->asItem()
 	    ->setCustomName("§eAlarm Trap")
 	    ->setLore([
 	        "§eStatus: {$alarmtrap}\n",

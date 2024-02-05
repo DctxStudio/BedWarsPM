@@ -6,4 +6,7 @@ projects:
   BedWarsPM:
     path: ""
     lint: true
+    libs:
+    - src: NurAzliYT/invmenu/InvMenu
+      version: ^4.1.1
 ...
