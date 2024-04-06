@@ -168,7 +168,7 @@ class Generator extends Human {
                                 $itemEntity = $iEntity;
                             }
                             if($itemEntity instanceof ItemEntity){
-                                if($itemEntity->getItem()->getId() == VanillaItems::GOLD_INGOT()->getId()){
+                                if($itemEntity->getItem()->getTypeId() == VanillaItems::GOLD_INGOT()->getTypeId()){
                                     $itemEntity->getItem()->setCount($itemEntity->getItem()->getCount() + $amount);
                                 } else {
                                     $this->getWorld()->dropItem(
@@ -220,7 +220,7 @@ class Generator extends Human {
                                 $itemEntity = $iEntity;
                             }
                             if($itemEntity instanceof ItemEntity){
-                                if($itemEntity->getItem()->getId() == VanillaItems::GOLD_INGOT()->getId()){
+                                if($itemEntity->getItem()->getTypeId() == VanillaItems::GOLD_INGOT()->getTypeId()){
                                     $itemEntity->getItem()->setCount($itemEntity->getItem()->getCount() + $ironamount);
                                 } else {
                                     $this->getWorld()->dropItem(

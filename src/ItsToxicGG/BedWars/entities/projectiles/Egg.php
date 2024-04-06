@@ -7,6 +7,7 @@ namespace ItsToxicGG\BedWars\entities\projectiles;
 use pocketmine\block\Air;
 use pocketmine\block\Block;
 use pocketmine\block\BlockTypeIds;
+use pocketmine\block\VanillaBlocks;
 use pocketmine\entity\projectile\Egg as PMEgg;
 use pocketmine\player\Player;
 use pocketmine\network\mcpe\protocol\PlaySoundPacket;
@@ -68,7 +69,7 @@ class Egg extends PMEgg {
 
                     BedWars::getInstance()->getArenaByPlayer($this->owner)->addPlacedBlock($this->getWorld()->getBlockAt($body->x,$body->y,$body->z));
 
-                    $this->getWorld()->setBlock($body,VanillaBlocks::WOOL()->setColor($meta[$team]));
+                    $this->getWorld()->setBlock($body,VanillaBlocks::WOOL()->setColor($meta[$this->team]));
                 }
 
                 foreach($this->getWorld()->getPlayers() as $player){

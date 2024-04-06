@@ -37,7 +37,7 @@ final class BossbarHandler{
 	public static function autoDeleteData(Plugin $plugin) :void{
 		if(self::$delete) return;
 		Server::getInstance()->getPluginManager()->registerEvent(PlayerQuitEvent::class, function(PlayerQuitEvent $ev) :void{
-			BossBarAPI::getInstance()->deleteData($ev->getPlayer());
+			BossBar::getInstance()->deleteData($ev->getPlayer());
 		}, EventPriority::MONITOR, $plugin);
 		self::$delete = true;
 	}

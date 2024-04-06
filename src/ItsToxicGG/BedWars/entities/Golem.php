@@ -293,7 +293,7 @@ class Golem extends Living{
                 if($entity == $this || !($entity instanceof Player) || $entity instanceof self){
                     continue;
                 }
-                if($this->getLocation()->distanceSquared($entity) > self::TARGET_MAX_DISTANCE){
+                if($this->getLocation()->distanceSquared($entity->getLocation()) > self::TARGET_MAX_DISTANCE){
                     continue;
                 }
                 if($entity->getGamemode() !== GameMode::ADVENTURE() && $entity->getGamemode() !== GameMode::SURVIVAL()){
@@ -345,7 +345,7 @@ class Golem extends Living{
                 --$nextIndex;
             }
 
-            $id = $block->getId();
+            $id = $block->getTypeId();
 
             if($transparent === null){
                 if($id !== 0){
@@ -371,8 +371,11 @@ class Golem extends Living{
             }
         }
         if($source instanceof EntityDamageByEntityEvent){
-            if($this->arena->getTeam($source->getDamager()) == $this->arena->getTeam($this->owner)){
+            $d = $source->getDamager();
+            if ($d instanceof Player){
+            if($this->arena->getTeam($d) == $this->arena->getTeam($this->owner)){
                 $source->cancel();
+            } 
             } 
             $source->setKnockback(0.1);
         }

@@ -5,10 +5,12 @@
 namespace ItsToxicGG\BedWars;
 
 
+use pocketmine\entity\Human;
 use pocketmine\event\block\BlockBreakEvent;
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerChatEvent;
 use pocketmine\event\player\PlayerJoinEvent;
+use pocketmine\network\mcpe\protocol\types\skin\SkinData;
 use pocketmine\network\mcpe\raklib\RakLibInterface;
 use pocketmine\event\player\PlayerLoginEvent;
 use pocketmine\block\Block;
@@ -163,7 +165,7 @@ class BedWars extends PluginBase implements Listener {
 			return new Bedbug(EntityDataHelper::parseLocation($nbt, $world), $nbt);
 		}, ['Bedbug']);
 		$entityFactory->register(Generator::class, function(World $world, CompoundTag $nbt) :Generator{
-			return new Generator(EntityDataHelper::parseLocation($nbt, $world), null, $nbt);
+			return new Generator(EntityDataHelper::parseLocation($nbt, $world), Human::parseSkinNBT($nbt), $nbt);
 		}, ['Generator']);
 	    $entityFactory->register(UpgradeVillager::class, function(World $world, CompoundTag $nbt) :UpgradeVillager{
 			return new UpgradeVillager(EntityDataHelper::parseLocation($nbt, $world), $nbt);

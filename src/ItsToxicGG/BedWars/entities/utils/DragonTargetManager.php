@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace ItsToxicGG\BedWars\entities\utils;
 
 use pocketmine\block\BlockTypeIds;
+use pocketmine\block\VanillaBlocks;
 use pocketmine\entity\Location;
 use pocketmine\math\Vector3;
 use pocketmine\utils\Random;

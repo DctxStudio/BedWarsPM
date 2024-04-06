@@ -3,6 +3,7 @@
 namespace ItsToxicGG\BedWars\entities;
 
 
+use pocketmine\block\BlockTypeIds;
 use pocketmine\event\entity\{EntityDamageEvent, EntityDamageByEntityEvent};
 use pocketmine\block\{Block,FenceGate,Fence,Liquid,Stair,Slab};
 use pocketmine\math\{Math,Vector2,Vector3,VoxelRayTrace};
@@ -255,7 +256,7 @@ class Bedbug extends Living {
                     $this->motion->y += $this->gravity * 0.29;
                 }
                 return true;
-            }elseif(!$upperBlock->hasEntityCollision()()){
+            }elseif(!$upperBlock->hasEntityCollision()){
                 $this->getLocation()->yaw = $this->getLocation()->getYaw() + mt_rand(-120, 120) / 10;
             }
         }
@@ -271,7 +272,7 @@ class Bedbug extends Living {
                 if($entity === $this || (!$entity instanceof Player) || $entity instanceof self){
                     continue;
                 }
-                if($this->getLocation()->distanceSquared($entity) > self::TARGET_MAX_DISTANCE){
+                if($this->getLocation()->distanceSquared($entity->getLocation()) > self::TARGET_MAX_DISTANCE){
                     continue;
                 }
                 if($entity instanceof Player){
@@ -338,10 +339,10 @@ class Bedbug extends Living {
                 --$nextIndex;
             }
 
-            $id = $block->getId();
+            $id = $block->getTypeId();
 
             if($transparent === null){
-                if($id !== 0){
+                if($id !== BlockTypeIds::AIR){
                     break;
                 }
             }else{
@@ -364,8 +365,9 @@ class Bedbug extends Living {
             }
         }
         if($source instanceof EntityDamageByEntityEvent){
-            if($source->getDamager() instanceof Player){
-            if($this->arena->getTeam($source->getDamager()) == $this->arena->getTeam($this->owner)){
+            $d = $source->getDamager();
+            if($d instanceof Player){
+            if($this->arena->getTeam($d) == $this->arena->getTeam($this->owner)){
                 $source->cancel();
             }
             }

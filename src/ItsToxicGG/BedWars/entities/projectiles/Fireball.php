@@ -141,18 +141,12 @@ class Fireball extends Throwable{
 	}
 	
 	public function explode(): void{
-		$ev = new ExplosionPrimeEvent($this, 2);
-		$ev->call();
-		if(!$ev->isCancelled()){
-            $explosionPos = Position::fromObject(
-                $this->getPosition()->add(0, $this->getInitialSizeInfo()->getHeight() / 2, 0),
-                $this->getWorld()
-            );
-			$explosion = new Explosion($explosionPos, $ev->getForce(), $this);
-			if($ev->isBlockBreaking()){
-				$explosion->explodeA();
-			}
-			$explosion->explodeB();
-		}
+        $explosionPos = Position::fromObject(
+            $this->getPosition()->add(0, $this->getInitialSizeInfo()->getHeight() / 2, 0),
+            $this->getWorld()
+        );
+		$explosion = new Explosion($explosionPos, 5, $this);
+		$explosion->explodeA();
+		$explosion->explodeB();
 	}
 } 

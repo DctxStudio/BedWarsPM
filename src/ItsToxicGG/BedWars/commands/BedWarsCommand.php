@@ -18,7 +18,7 @@ use ItsToxicGG\BedWars\BedWars;
  */
 class BedWarsCommand extends Command {
 
-    private Plugin $plugin;
+    private BedWars $plugin;
 
     /**
      * BedWarsCommand constructor.

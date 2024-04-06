@@ -6,6 +6,7 @@ use pocketmine\block\Air;
 use pocketmine\block\Block;
 use ItsToxicGG\BedWars\Game;
 use ItsToxicGG\BedWars\math\Vector3;
+use pocketmine\block\BlockTypeIds;
 use pocketmine\block\utils\DyeColor;
 use pocketmine\player\Player;
 use ItsToxicGG\BedWars\BedWars;
@@ -128,33 +129,33 @@ class TowerNorth {
          $ladermeta = 2;
 
                 foreach($list as $pe){
-                        if($player->getPosition()->getWorld()->getBlockAt($pe->getX(),$pe->getY(),$pe->getZ())->getId() == 0){
+                        if($player->getPosition()->getWorld()->getBlockAt($pe->getX(),$pe->getY(),$pe->getZ())->getTypeId() == BlockTypeIds::AIR){
                              BedWars::getInstance()->getArenaByPlayer($p)->addPlacedBlock($p->getWorld()->getBlockAt($pe->getX(),$pe->getY(),$pe->getZ()));
-                             $player->getPosition()->getWorld()->setBlock($pe,VanillaBlocks::WOOL()->setColor($meta));
+                             $player->getPosition()->getWorld()->setBlock($pe,\pocketmine\block\VanillaBlocks::WOOL()->setColor($meta[$team]),true);
                         }
 
                 }
 
-                 if($player->getPosition()->getWorld()->getBlockat($ld1->x,$ld1->y,$ld1->z)->getId() == 0){
-                         $p->getPosition()->getWorld()->setBlock($ld1,\pocketmine\block\VanillaBlocks::LADDER(),true,true);
+                 if($player->getPosition()->getWorld()->getBlockat($ld1->x,$ld1->y,$ld1->z)->getTypeId() == BlockTypeIds::AIR){
+                         $p->getPosition()->getWorld()->setBlock($ld1,\pocketmine\block\VanillaBlocks::LADDER(),true);
                           BedWars::getInstance()->getArenaByPlayer($p)->addPlacedBlock($p->getPosition()->getWorld()->getBlockAt($ld1->x,$ld1->y,$ld1->z));
 
                      }
-                 if($player->getPosition()->getWorld()->getBlockat($ld2->x,$ld2->y,$ld2->z)->getId() == 0){
-                         $p->getPosition()->getWorld()->setBlock($ld2,\pocketmine\block\VanillaBlocks::LADDER(),true,true);
+                 if($player->getPosition()->getWorld()->getBlockat($ld2->x,$ld2->y,$ld2->z)->getTypeId() == BlockTypeIds::AIR){
+                         $p->getPosition()->getWorld()->setBlock($ld2,\pocketmine\block\VanillaBlocks::LADDER(),true);
                          BedWars::getInstance()->getArenaByPlayer($p)->addPlacedBlock($p->getPosition()->getWorld()->getBlockAt($ld2->x,$ld2->y,$ld2->z));
                  }
-                 if($player->getPosition()->getWorld()->getBlockat($ld3->x,$ld3->y,$ld3->z)->getId() == 0){
-                         $p->getPosition()->getWorld()->setBlock($ld3,\pocketmine\block\VanillaBlocks::LADDER(),true,true);
+                 if($player->getPosition()->getWorld()->getBlockat($ld3->x,$ld3->y,$ld3->z)->getTypeId() == BlockTypeIds::AIR){
+                         $p->getPosition()->getWorld()->setBlock($ld3,\pocketmine\block\VanillaBlocks::LADDER(),true);
                          BedWars::getInstance()->getArenaByPlayer($p)->addPlacedBlock($p->getPosition()->getWorld()->getBlockAt($ld3->x,$ld3->y,$ld3->z));
 
                  }
-                 if($player->getPosition()->getWorld()->getBlockat($ld4->x,$ld4->y,$ld4->z)->getId() == 0){
-                         $p->getPosition()->getWorld()->setBlock($ld4,\pocketmine\block\VanillaBlocks::LADDER(),true,true);
+                 if($player->getPosition()->getWorld()->getBlockat($ld4->x,$ld4->y,$ld4->z)->getTypeId() == BlockTypeIds::AIR){
+                         $p->getPosition()->getWorld()->setBlock($ld4,\pocketmine\block\VanillaBlocks::LADDER(),true);
                          BedWars::getInstance()->getArenaByPlayer($p)->addPlacedBlock($p->getPosition()->getWorld()->getBlockAt($ld4->x,$ld4->y,$ld4->z));
                  }
-                 if($player->getPosition()->getWorld()->getBlockat($ld5->x,$ld5->y,$ld5->z)->getId() == 0){
-                         $p->getPosition()->getWorld()->setBlock($ld5,\pocketmine\block\VanillaBlocks::LADDER(),true,true);
+                 if($player->getPosition()->getWorld()->getBlockat($ld5->x,$ld5->y,$ld5->z)->getTypeId() == BlockTypeIds::AIR){
+                         $p->getPosition()->getWorld()->setBlock($ld5,\pocketmine\block\VanillaBlocks::LADDER(),true);
                          BedWars::getInstance()->getArenaByPlayer($p)->addPlacedBlock($p->getPosition()->getWorld()->getBlockAt($ld5->x,$ld5->y,$ld5->z));
                  }
 
